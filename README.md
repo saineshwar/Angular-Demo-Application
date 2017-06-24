@@ -6,17 +6,25 @@ This project is a simple rent a car project developed in ASP.NET Core MVC and An
 This application has 2 ends
 1.	User end
 2.	Admin end
+
 User Process 
+
 Rent a car is common now days, we have seen most of the people want cars on rent they do not want to purchase their own car but still they want a car for tour or visiting their native places, but for renting a car you need to go to tours and travel person then ask them, is there any 6 seater 5 seater car available and then we look at condition and then only we try to rent this car, meanwhile in this project we have tried to automate this process by creating this application, in this application User need to register himself on  portal then he can log in with his credentials and book a car after booking next step is to do payment after payment only this booking is done, if you book a car and you have not done payment then you have not booked a car. Along with this, you can also cancel your booking if you do not want a car. You will also get in details how many applications you have booked till now along with your transaction history. 
+
 Features 
+
 1.	Booking
 2.	All Booking Details
 3.	All Pending Booking Details
 4.	All Payment Details
 5.	Cancel Booking
+
 Admin Process 
+
 Admin Process in this application is to Add new Cars, he can also view all Booking which is occurred along with that all Payment transaction and also can cancel Booking.
+
 Features 
+
 1.	Add Car Details and Photo	
 2.	All Pending Booking Details
 3.	All Payment Details

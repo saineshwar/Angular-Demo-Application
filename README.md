@@ -41,4 +41,9 @@ Admin Dashboard Screen
 
 ![Admin Dashboard Screen](https://github.com/saineshwar/Angular-Demo-Application/blob/master/images/image083.png?raw=true "Admin Dashboard Screen")
 
+Project Structure Screen
+
+![Project Structure Screen](https://github.com/saineshwar/Angular-Demo-Application/blob/master/image045.png?raw=true "Project Structure Screen")
+
+
 

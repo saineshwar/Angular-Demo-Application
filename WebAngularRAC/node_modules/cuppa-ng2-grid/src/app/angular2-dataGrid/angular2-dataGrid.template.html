@@ -1,0 +1,53 @@
+<div class="cuppa-grid">
+     <div class="vrow grid-main-header">
+         <div class="grid-title">
+             <c-templateRenderer *ngIf="heading" [data]="heading"></c-templateRenderer>
+             <span *ngIf="!heading">{{config.title}}</span>
+         </div>
+         <div class="grid-search">
+             <input (blur)="search($event)" (keyup)="filter($event)">
+            <button>Search</button>
+         </div>
+     </div>
+    <div class="header-row vrow" >
+        <span *ngIf="columns.toArray().length == 0">
+            <div *ngFor="let column of headSection;let k = index" class="vcolumn" [columnWidth]="headSection" (click)="sortColumn(column)" >
+                <span class="header-title">{{column.title}} </span>
+                <div class="header-sort" *ngIf="config.sort">
+                    <i *ngIf="column.sorting=='desc'" class="icon pe-7s-angle-up pe-lg"></i>
+                    <i *ngIf="column.sorting=='asc'" class="icon pe-7s-angle-down pe-lg"></i>
+                </div>
+            </div>
+        </span>
+        <span *ngIf="columns">
+            <div *ngFor="let column of headSection;let k = index" class="vcolumn" [columnWidth]="columns" (click)="sortColumn(column)" >
+                <span class="header-title">{{column.title}} </span>
+                <div class="header-sort" *ngIf="config.sort">
+                    <i *ngIf="column.sorting=='desc'" class="icon pe-7s-angle-up pe-lg"></i>
+                    <i *ngIf="column.sorting=='asc'" class="icon pe-7s-angle-down pe-lg"></i>
+                </div>
+            </div>
+        </span>
+        </div>
+    <div class="container">
+        <div style="position:absolute;top:0;left:0;opacity:0;width:1px;" [setContainerHeight]="totalHeight"></div>
+        <div *ngFor="let row of chunkArray;let i = index" class="vrow" style="position: absolute;" [ngStyle]="{'height': config.itemHeight+'px'}" [styleProp]="chunkIndex[i]" (click)="onRowClick(row)">
+            <span *ngIf="columns.toArray().length == 0">
+            <div *ngFor="let obj of row | keys" class="vcolumn" [columnWidth]="headSection">
+                {{obj.value}}
+
+            </div>
+            </span>
+            <span *ngIf="columns">
+            <div *ngFor="let col of columns" class="vcolumn" [ngStyle]="{'height': config.itemHeight+'px'}" [columnWidth]="columns" [ngStyle]="{'width': (columns.length/3)+'px'}">
+                <c-columnTemplateRenderer *ngIf="col.template" [data]="col" [rowData]="row"></c-columnTemplateRenderer>
+                <span *ngIf="!col.template">{{getColumnData(row, col.field)}}</span>
+            </div>
+            </span>
+        </div>
+    </div>
+    <div class="grid-footer">
+        <label>Total Rows:</label> <span>{{totalRows}}</span>
+    </div>
+</div>
+

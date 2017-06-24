@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <div class="container">
+
+        <nav class='navbar navbar-inverse'>
+            <div class='container-fluid'>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/UserDashboard']">Home</a></li>
+                    <li><a [routerLink]="['/ChangePassword']">ChangePassword</a></li>
+                    <li><a [routerLink]="['/UserLogout']">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Booking</div>
+        <div class="panel-body">
+            <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="name">Model Name</label>
+                        <select required name="C_Id"
+                                #refCar="ngModel"
+                                class="form-control" [(ngModel)]="selectedCar">
+                            <option value="undefined">Please select Value</option>
+                            <option *ngFor="let car of CarData"
+                                    [ngValue]="car.C_Id">
+                                {{car.Model_Name}}
+                            </option>
+                        </select>
+                        <div *ngIf="!refCar.valid  && (refCar.dirty || refCar.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refCar.errors.required">
+                                Required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="name">Username</label>
+                        <input type="text" class="form-control" name="Name" [(ngModel)]="bookingmodel.Name" #refName="ngModel" id="Name" required>
+                        <div *ngIf="!refName.valid  && (refName.dirty || refName.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refName.errors.required">
+                                Name is required
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-4">
+                        <label for="name">Email</label>
+                        <input type="text" class="form-control" name="Email_Id" [(ngModel)]="bookingmodel.Email_Id" #refEmail_Id="ngModel" id="Email_Id" required>
+                        <div *ngIf="!refEmail_Id.valid  && (refEmail_Id.dirty || refEmail_Id.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refEmail_Id.errors.required">
+                                Email is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="name">Source Address</label>
+                        <input type="text" style="width:350px;height:80px;" class="form-control" name="S_address" [(ngModel)]="bookingmodel.S_address" #refS_address="ngModel" id="S_address" required>
+                        <div *ngIf="!refS_address.valid  && (refS_address.dirty || refS_address.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refS_address.errors.required">
+                                Source Address is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="name">Destination Address</label>
+                        <input style="width:350px;height:80px;" type="text" class="form-control" name="D_address" [(ngModel)]="bookingmodel.D_address" #refD_address="ngModel" id="D_address" required>
+                        <div *ngIf="!refD_address.valid  && (refD_address.dirty || refD_address.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refD_address.errors.required">
+                                Destination Address is required
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-4">
+                        <label for="name">Contact No</label>
+                        <input type="text" class="form-control" name="Contact_No" maxlength="10" [(ngModel)]="bookingmodel.Contact_No" #refContact_No="ngModel" id="Contact_No" required>
+                        <div *ngIf="!refContact_No.valid  && (refContact_No.dirty || refContact_No.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refContact_No.errors.required">
+                                Contact_No is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="name">From Date</label>
+                        <input [(ngModel)]="bookingmodel.FromDate" #refFromDate="ngModel" ng2-datetime-picker class="form-control" name="FromDate" required
+                               date-format="YYYY-MM-DD hh:mm"
+                               year="2014"
+                               month="12"
+                               day="31"
+                               hour="23"
+                               minute='59'
+                               min-date="1"
+                               min-hour="00"
+                               [close-on-select]="false" />
+
+                        <div *ngIf="!refFromDate.valid  && (refFromDate.dirty || refFromDate.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refFromDate.errors.required">
+                                From Date is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="name">To Date</label>
+                        <input [(ngModel)]="bookingmodel.ToDate" #refToDate="ngModel" ng2-datetime-picker class="form-control" name="ToDate" required
+                               date-format="YYYY-MM-DD hh:mm"
+                               year="2014"
+                               month="12"
+                               day="31"
+                               hour="23"
+                               minute='59'
+                               min-date="0"
+                               min-hour="0"
+                               (ngModelChange)="myFunc($event)"
+                               [close-on-select]="false" />
+
+                        <div *ngIf="!refToDate.valid  && (refToDate.dirty || refToDate.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refToDate.errors.required">
+                                To Date is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div style="margin-top:10px;" class="col-md-4">
+                        <button type="submit" [disabled]="!f.form.valid" class="btn btn-success">Book Ride</button>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</body>
+</html>

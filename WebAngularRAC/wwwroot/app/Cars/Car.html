@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <nav class='navbar navbar-inverse'>
+            <div class='container-fluid'>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/AdminDashboard']">Home</a></li>
+                    <li><a [routerLink]="['/Car']">Add Car</a></li>
+                    <li><a [routerLink]="['/UploadCarPhoto']">Upload Car Photo</a></li>
+                    <li><a [routerLink]="['/AllCar']">ShowAll Car</a></li>
+                    <li><a [routerLink]="['/AdminLogout']">Logout</a></li>
+                </ul>
+
+            </div>
+        </nav>
+        <div class="panel panel-default">
+            <div class="panel-heading">Add New Car</div>
+            <div class='panel-body'>
+                <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="name">Model Name</label>
+                            <input type="text" class="form-control" name="Model_Name"
+                                   [(ngModel)]="carmodel.Model_Name"
+                                   (blur)="CheckModelNameExist()"
+                                   #refModelName="ngModel"
+                                   id="Model_Name" required>
+                            <div *ngIf="!refModelName.valid  && (refModelName.dirty || refModelName.touched)"
+                                 class="alert alert-danger">
+                                <div [hidden]="!refModelName.errors.required">
+                                    Model Name is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="name">Brand Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="Brand"
+                                   [(ngModel)]="carmodel.Brand"
+                                   #refBrand="ngModel"
+                                   id="Brand" required>
+
+                            <div *ngIf="!refBrand.valid  && (refBrand.dirty || refBrand.touched)"
+                                 class="alert alert-danger">
+                                <div [hidden]="!refBrand.errors.required">
+                                    Brand Name is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="name">Color Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="Color"
+                                   [(ngModel)]="carmodel.Color"
+                                   #refColor="ngModel"
+                                   id="Color" required>
+
+                            <div *ngIf="!refColor.valid  && (refColor.dirty || refColor.touched)"
+                                 class="alert alert-danger">
+                                <div [hidden]="!refColor.errors.required">
+                                    Color Name is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="name">No of passenger</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="No_of_Pas"
+                                   [(ngModel)]="carmodel.No_of_Pas"
+                                   #refNo_of_Pas="ngModel"
+                                   pattern="^[0-9]*$"
+                                   maxlength="1"
+                                   id="No_of_Pas" required>
+
+                            <div *ngIf="!refNo_of_Pas.valid  && (refNo_of_Pas.dirty || refNo_of_Pas.touched)"
+                                 class="alert alert-danger">
+                                No of passenger is required / Only Numbers are allowed
+                            </div>
+                            <div *ngIf="refNo_of_Pas.errors && submitted"
+                                 class="alert-danger">
+                                <div [hidden]="!refNo_of_Pas.errors.maxlength">
+                                    Only 4 passenger are allowed
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="name">Price</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="Price"
+                                   [(ngModel)]="carmodel.Price"
+                                   #refPrice="ngModel"
+                                   pattern="^[0-9]*$"
+                                   id="Price" required>
+
+                            <div *ngIf="!refPrice.valid  && (refPrice.dirty || refPrice.touched)"
+                                 class="alert alert-danger">
+                                Price is required / Only Numbers are allowed
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="name">Fueltype</label>
+                            <input type="text"
+                                   class="form-control"
+                                   name="Fueltype"
+                                   [(ngModel)]="carmodel.Fueltype"
+                                   #refFueltype="ngModel"
+                                   id="Fueltype" required>
+                            <div *ngIf="!refFueltype.valid  && (refFueltype.dirty || refFueltype.touched)"
+                                 class="alert alert-danger">
+                                <div [hidden]="!refFueltype.errors.required">
+                                    Fueltype is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div style="margin-top:10px;" class="col-md-4">
+                            <button type="submit" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

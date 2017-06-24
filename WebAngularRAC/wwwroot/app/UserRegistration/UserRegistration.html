@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <nav class='navbar navbar-inverse'>
+        <div class='container-fluid'>
+
+        </div>
+    </nav>
+    <div class="container">
+        <div style="float:left; width: 50%">
+            <div class="panel panel-default">
+                <div class="panel-heading">Registration</div>
+                <div class="panel-body">
+                    <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="name">Username</label>
+                                <input type="text" class="form-control" name="Username" [(ngModel)]="UserMasterModel.Username" maxlength="50" (blur)="CheckUsernameExist()" #refUsername="ngModel" id="Username" required>
+                                <div *ngIf="!refUsername.valid  && (refUsername.dirty || refUsername.touched)"
+                                     class="alert alert-danger">
+                                    <div [hidden]="!refUsername.errors.required">
+                                        Username is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="name">Password</label>
+                                <input required type="password"
+                                       class="form-control"
+                                       name="password"
+                                       maxlength="20"
+                                       #refpassword="ngModel"
+                                       [(ngModel)]="UserMasterModel.Password"
+                                       validateEqual="confirmPassword" reverse="true">
+                                <div *ngIf="!refpassword.valid  && (refpassword.dirty || refpassword.touched)"
+                                     class="alert alert-danger">
+                                    <div [hidden]="!refpassword.errors.required">
+                                        Password is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="name">Confirm Password</label>
+                                <input type="password"
+                                       #refconfirmPassword="ngModel"
+                                       class="form-control"
+                                       maxlength="20"
+                                       name="confirmPassword"
+                                       [ngModel]="UserMasterModel.confirmPassword"
+                                       required
+                                       validateEqual="password">
+                                <div class="alert alert-danger" [hidden]="refconfirmPassword.valid || (refconfirmPassword.pristine)">
+                                    Password mismatch
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="name">Address</label>
+                                <input type="text" class="form-control" name="Address" maxlength="50" [(ngModel)]="UserMasterModel.Address" #refAddress="ngModel" id="Address" required>
+                                <div *ngIf="!refAddress.valid  && (refAddress.dirty || refAddress.touched)"
+                                     class="alert alert-danger">
+                                    <div [hidden]="!refAddress.errors.required">
+                                        Address is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="name">BirthDate</label>
+                                <my-date-picker name="mydate" [options]="myDatePickerOptions" #refBirthdate="ngModel"
+                                                [(ngModel)]="UserMasterModel.BirthdateView" required></my-date-picker>
+                                <div *ngIf="!refBirthdate.valid  && (refBirthdate.dirty || refBirthdate.touched)"
+                                     class="alert alert-danger">
+                                    <div [hidden]="!refBirthdate.errors.required">
+                                        Birthdate is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="name">Contact No</label>
+                                <input type="text" class="form-control" name="Contact_No" maxlength="10" [(ngModel)]="UserMasterModel.Contact_No" pattern="^\d+$" #refContact_No="ngModel" id="Contact_No" required>
+                                <div *ngIf="!refContact_No.valid  && (refContact_No.dirty || refContact_No.touched)"
+                                     class="alert alert-danger">
+                                    <div [hidden]="refContact_No.valid || (refContact_No.pristine)">
+                                        Only Numbers are allowed
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="name">Email</label>
+                                <input type="text" class="form-control" name="Email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="UserMasterModel.Email" #refEmail="ngModel" id="Email" required>
+                                <div *ngIf="!refEmail.valid  && (refEmail.dirty || refEmail.touched)"
+                                     class="alert alert-danger">
+                                    <div [hidden]="refEmail.valid || (refEmail.pristine)">
+                                        Email is required and format should be <i>saineshwar@bageri.com</i>.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div style="margin-top:10px;" class="col-md-12">
+                                <button type="submit" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div style="float:right; width: 50%;">
+            <div style="margin-left: 63px;margin-top: 60px;">
+                Already Registered ? <a class="btn btn-success" style="align-content:center" [routerLink]="['/Login']">Login here..</a>
+                <br />
+                <br />
+                <css-carousel></css-carousel>
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+    <nav class='navbar navbar-inverse'>
+        <div class='container-fluid'>
+
+        </div>
+    </nav>
+</body>
+</html>

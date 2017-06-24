@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <nav class='navbar navbar-inverse'>
+            <div class='container-fluid'>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/UserDashboard']">Home</a></li>
+                    <li><a [routerLink]="['/ChangePassword']">ChangePassword</a></li>
+                    <li><a [routerLink]="['/UserLogout']">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="panel panel-default">
+            <div class="panel-heading">ALL PENDING BOOKING DETAILS</div>
+            <div class='panel-body'>          
+                <div class='table-responsive'>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>FromDate</th>
+                                <th>ToDate</th>
+                                <th>S_address</th>
+                                <th>D_address</th>
+                                <th>Delete</th>
+                                <th>Make Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let book of bookingmodel'>
+                                <td>{{book.Name}}</td>
+                                <td>{{book.FromDate}}</td>
+                                <td>{{book.ToDate}}</td>
+                                <td>{{book.S_address}}</td>
+                                <td>{{book.D_address}}</td>
+                                <td>
+                                    <input class="btn btn-danger" value="Delete Booking" type="button" (click)="Delete(book.BookingID)" />
+                                </td>
+                                <td>
+                                    <a class="btn btn-success" [routerLink]="['/Payment', book.BookingID]">Make Payment</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

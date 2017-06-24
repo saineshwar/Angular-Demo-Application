@@ -1,0 +1,1 @@
+export * from './src/app/angular2-dataGrid/angular2-dataGrid'

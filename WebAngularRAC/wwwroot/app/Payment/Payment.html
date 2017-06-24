@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <nav class='navbar navbar-inverse'>
+        <div class='container-fluid'>
+            <ul class='nav navbar-nav'>
+                <li><a [routerLink]="['/UserDashboard']">Home</a></li>
+                <li><a [routerLink]="['/ChangePassword']">ChangePassword</a></li>
+                <li><a [routerLink]="['/UserLogout']">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="panel panel-default">
+        <div class="panel-heading">Payment</div>
+        <div class="panel-body">
+            <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="name">Bank Name</label>
+                        <select required name="BankID"
+                                #refbank="ngModel"
+                                class="form-control" [(ngModel)]="selectedBank">
+                            <option value="undefined">Please select Value</option>
+                            <option *ngFor="let bank of banktbmodel"
+                                    [ngValue]="bank.BankID">
+                                {{bank.BankName}}
+                            </option>
+                        </select>
+                        <div *ngIf="!refbank.valid  && (refbank.dirty || refbank.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refbank.errors.required">
+                                Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" [disabled]="disabledtext" name="Name" [(ngModel)]="bookingmodel.Name" id="Name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="name">FromDate</label>
+                        <input type="text" class="form-control" [disabled]="disabledtext" name="FromDate" [(ngModel)]="bookingmodel.FromDate" id="FromDate" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="name">ToDate</label>
+                        <input type="text" class="form-control" [disabled]="disabledtext" name="ToDate" [(ngModel)]="bookingmodel.ToDate" id="ToDate" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="name">Amount</label>
+                        <input type="text" class="form-control" [disabled]="disabledtext" name="Amount" [(ngModel)]="bookingmodel.Amount" id="Amount" required>
+                        <input id="C_Id" name="C_Id" [(ngModel)]="bookingmodel.C_Id" type="hidden" />
+                        <input id="BookingID" name="BookingID" [(ngModel)]="bookingmodel.BookingID" type="hidden" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="margin-top:10px;" class="col-md-4">
+                        <button type="submit" [disabled]="!f.form.valid" class="btn btn-danger">Make Payment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

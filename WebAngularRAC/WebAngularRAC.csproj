@@ -1,0 +1,107 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net46</TargetFramework>
+    <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot/app\Cars\Services\ypzvolp1.sht~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\app\AdminDashboard\AdminDashboard.Component.ts" />
+    <Content Include="wwwroot\app\AdminDashboard\AdminDashboard.html" />
+    <Content Include="wwwroot\app\app.Component.ts" />
+    <Content Include="wwwroot\app\app.module.ts" />
+    <Content Include="wwwroot\app\Bank\BankTB.Model.ts" />
+    <Content Include="wwwroot\app\Bank\Services\Bank.Service.ts" />
+    <Content Include="wwwroot\app\Booking\AdminBookingView.Component.ts" />
+    <Content Include="wwwroot\app\Booking\AllAdminBookingDetails.html" />
+    <Content Include="wwwroot\app\Booking\AllBookingDetails.Component.ts" />
+    <Content Include="wwwroot\app\Booking\AllBookingDetails.html" />
+    <Content Include="wwwroot\app\Booking\Booking.Common.Model.ts" />
+    <Content Include="wwwroot\app\Booking\Booking.Component.ts" />
+    <Content Include="wwwroot\app\Booking\Booking.html" />
+    <Content Include="wwwroot\app\Booking\BookingModel.ts" />
+    <Content Include="wwwroot\app\Booking\DeleteBooking.Component.ts" />
+    <Content Include="wwwroot\app\Booking\DeleteBooking.html" />
+    <Content Include="wwwroot\app\Booking\PendingBookingDetail.Component.ts" />
+    <Content Include="wwwroot\app\Booking\PendingBookingDetails.html" />
+    <Content Include="wwwroot\app\Booking\Services\AdminBookingView.Service.ts" />
+    <Content Include="wwwroot\app\Booking\Services\Booking.Service.ts" />
+    <Content Include="wwwroot\app\CarGallery\CarImage.Model.ts" />
+    <Content Include="wwwroot\app\CarGallery\carousel-example.ts" />
+    <Content Include="wwwroot\app\CarGallery\carousel.component.ts" />
+    <Content Include="wwwroot\app\CarGallery\CarsGallery.Component.ts" />
+    <Content Include="wwwroot\app\CarGallery\image.interface.ts" />
+    <Content Include="wwwroot\app\CarGallery\index.png" />
+    <Content Include="wwwroot\app\CarGallery\Services\CarImages.Service.ts" />
+    <Content Include="wwwroot\app\CarGallery\Services\GetCarImages.Service.ts" />
+    <Content Include="wwwroot\app\Cars\AddCarsPhoto.Component.ts" />
+    <Content Include="wwwroot\app\Cars\AddCarsPhoto.html" />
+    <Content Include="wwwroot\app\Cars\AllCars.Component.ts" />
+    <Content Include="wwwroot\app\Cars\AllCars.html" />
+    <Content Include="wwwroot\app\Cars\Car.Component.ts" />
+    <Content Include="wwwroot\app\Cars\Car.html" />
+    <Content Include="wwwroot\app\Cars\Car.Model.ts" />
+    <Content Include="wwwroot\app\Cars\EditCar.Component.ts" />
+    <Content Include="wwwroot\app\Cars\EditCar.html" />
+    <Content Include="wwwroot\app\Cars\Services\Car.Service.ts" />
+    <Content Include="wwwroot\app\CustomDirectives\equal-validator.directive.ts" />
+    <Content Include="wwwroot\app\CustomPipes\Carpipe.ts" />
+    <Content Include="wwwroot\app\Login\AdminLogout.Component.ts" />
+    <Content Include="wwwroot\app\Login\ChangePassword.Component.ts" />
+    <Content Include="wwwroot\app\Login\ChangePassword.html" />
+    <Content Include="wwwroot\app\Login\ChangePassword.Model.ts" />
+    <Content Include="wwwroot\app\Login\Login.Component.ts" />
+    <Content Include="wwwroot\app\Login\Login.html" />
+    <Content Include="wwwroot\app\Login\Login.Model.ts" />
+    <Content Include="wwwroot\app\Login\Services\Changepassword.Service.ts" />
+    <Content Include="wwwroot\app\Login\Services\Login.Service.ts" />
+    <Content Include="wwwroot\app\Login\UserLogout.Component.ts" />
+    <Content Include="wwwroot\app\main.ts" />
+    <Content Include="wwwroot\app\Payment\AllPaymentDetails.Component.ts" />
+    <Content Include="wwwroot\app\Payment\AllPaymentDetails.html" />
+    <Content Include="wwwroot\app\Payment\AllPaymentDetailsAdmin.Component.ts" />
+    <Content Include="wwwroot\app\Payment\AllPaymentDetailsAdmin.html" />
+    <Content Include="wwwroot\app\Payment\Payment.Component.ts" />
+    <Content Include="wwwroot\app\Payment\Payment.html" />
+    <Content Include="wwwroot\app\Payment\Payment.Model.ts" />
+    <Content Include="wwwroot\app\Payment\PaymentViewModel.ts" />
+    <Content Include="wwwroot\app\Payment\Service\Payment.Service.ts" />
+    <Content Include="wwwroot\app\Payment\Service\PaymentAdmin.Service.ts" />
+    <Content Include="wwwroot\app\UserDashboard\UserDashboard.Component.ts" />
+    <Content Include="wwwroot\app\UserDashboard\UserDashboard.html" />
+    <Content Include="wwwroot\app\UserRegistration\Services\UserRegistration.Service.ts" />
+    <Content Include="wwwroot\app\UserRegistration\UserMaster.Component.ts" />
+    <Content Include="wwwroot\app\UserRegistration\UserRegistration.html" />
+    <Content Include="wwwroot\app\UserRegistration\UserMaster.Model.ts" />
+    <Content Include="wwwroot\app\_guards\auth.adminguard.js" />
+    <Content Include="wwwroot\app\_guards\auth.adminguard.js.map" />
+    <Content Include="wwwroot\app\_guards\auth.adminguard.ts" />
+    <Content Include="wwwroot\app\_guards\auth.guard.ts" />
+    <Content Include="wwwroot\css\Dashboard.css" />
+    <Content Include="wwwroot\css\Login.css" />
+    <Content Include="wwwroot\Index.html" />
+    <Content Include="wwwroot\lib\moment\moment-with-locales.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\Cars_Upload\" />
+  </ItemGroup>
+
+</Project>

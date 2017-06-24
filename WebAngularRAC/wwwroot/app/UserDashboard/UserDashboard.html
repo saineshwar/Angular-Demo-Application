@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <nav class='navbar navbar-inverse'>
+            <div class='container-fluid'>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/UserDashboard']">Home</a></li>
+                    <li><a [routerLink]="['/ChangePassword']">ChangePassword</a></li>
+                    <li><a [routerLink]="['/UserLogout']">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class='container'>
+            <div class="row">
+                <router-outlet></router-outlet>
+            </div>
+            <div class="row">
+                <!-- Boxes de Acoes -->
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                    <div class="box">
+                        <div class="icon">
+                            <div class="image"><i class="fa fa-thumbs-o-up"></i></div>
+                            <div class="info">
+                                <h3 class="title">BOOK NOW</h3>
+                                <p>
+                                    We simplified car rentals, so you can focus on what's important to you. 
+                                </p>
+                                <div class="more">
+                                    <a href="#" [routerLink]="['/Booking']" title="Title Link">
+                                        Read More <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                    <div class="box">
+                        <div class="icon">
+                            <div class="image"><i class="fa fa-flag"></i></div>
+                            <div class="info">
+                                <h3 class="title">ALL BOOKING DETAILS</h3>
+                                <p>
+                                    See all booking at once place , so you can focus on what's important to you. 
+                                </p>
+                                <div class="more">
+                                    <a href="#" [routerLink]="['/AllBookingDetails']" title="Title Link">
+                                        Read More <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                    <div class="box">
+                        <div class="icon">
+                            <div class="image"><i class="fa fa-flag"></i></div>
+                            <div class="info">
+                                <h3 class="title">ALL PENDING BOOKING DETAILS</h3>
+                                <p>
+                                    See all Pending booking at once place , so you can focus on what's important to you.
+                                </p>
+                                <div class="more">
+                                    <a href="#" [routerLink]="['/PendingBooking']" title="Title Link">
+                                        Read More <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                    <div class="box">
+                        <div class="icon">
+                            <div class="image"><i class="fa fa-desktop"></i></div>
+                            <div class="info">
+                                <h3 class="title">ALL PAYMENT DETAILS</h3>
+                                <p>
+                                    Making Payment in Simple steps , so you can focus on what's important to you. 
+                                </p>
+                                <div class="more">
+                                    <a href="#" [routerLink]="['/AllPaymentDetails']" title="Title Link">
+                                        Read More <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                    </div>
+                </div>
+                <!-- /Boxes de Acoes -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

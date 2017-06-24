@@ -1,0 +1,33 @@
+#datepicker {
+  background: #f7f7f7;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.2);
+  border-radius: 3px;
+  width: 300px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  input {
+    margin-bottom: 15px;
+  }
+
+  .datepicker-inline {
+    width: 100%;
+  }
+
+  .datepicker table {
+    width: 100% !important;
+  }
+}
+
+
+/* For example */
+
+#root {
+  margin: 50px;
+  text-align: center;
+}
+
+.example + .example {
+  margin-top: 50px;
+}

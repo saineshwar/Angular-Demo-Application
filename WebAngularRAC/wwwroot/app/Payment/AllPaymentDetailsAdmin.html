@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <nav class='navbar navbar-inverse'>
+            <div class='container-fluid'>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/AdminDashboard']">Home</a></li>
+                    <li><a [routerLink]="['/UserLogout']">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <br />
+        <div class="panel panel-default">
+            <div class="panel-heading">ALL PAYMENT DETAILS</div>
+            <div class="panel-body">
+
+                <div class='table-responsive'>
+                    <dx-data-grid id="gridContainer"
+                                  [showRowLines]="true"
+                                  [showBorders]="true"
+                                  [rowAlternationEnabled]="true"
+                                  [dataSource]="paymentviewmodel">
+                        <dxo-search-panel [visible]="true"
+                                          [width]="300"
+                                          placeholder="Search..."></dxo-search-panel>
+                        <dxo-paging [pageSize]="10"></dxo-paging>
+                        <dxo-pager [showPageSizeSelector]="true"
+                                   [allowedPageSizes]="[5, 10, 20]"
+                                   [showInfo]="true">
+                        </dxo-pager>
+
+                        <dxi-column sortOrder="asc" dataField="Carname"></dxi-column>
+                        <dxi-column sortOrder="asc" dataField="BankName"></dxi-column>
+                        <dxi-column sortOrder="asc" dataField="PaymentDate"></dxi-column>
+                        <dxi-column [width]="100" dataField="Amount"></dxi-column>
+                        <dxi-column caption="Payed On" dataField="CreatedOn"></dxi-column>
+                    </dx-data-grid>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

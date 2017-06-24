@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container">
+
+        <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
+
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <div class="form-login">
+                        <h4>Welcome back.</h4>
+                        <label for="name">Username</label>
+                        <input type="text" class="form-control"
+                               name="Username"
+                               [(ngModel)]="LoginModel.Username"
+                               #refUsername="ngModel"
+                               id="Username"
+                               required>
+                        <div *ngIf="!refUsername.valid  && (refUsername.dirty || refUsername.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refUsername.errors.required">
+                                Username is required
+                            </div>
+
+                        </div>
+
+                        <br />
+
+                        <label for="name">Password</label>
+                        <input required type="password"
+                               class="form-control"
+                               name="password"
+                               #refpassword="ngModel"
+                               [(ngModel)]="LoginModel.Password">
+                        <div *ngIf="!refpassword.valid  && (refpassword.dirty || refpassword.touched)"
+                             class="alert alert-danger">
+                            <div [hidden]="!refpassword.errors.required">
+                                Password is required
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="wrapper">
+                            <span class="group-btn">
+                                <button type="submit" [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+                            </span>
+                        </div>
+                        <br />
+                        <div class="wrapper">
+                            <span class="group-btn">
+                                <a  class="btn btn-success" [routerLink]="['/UserRegistration']" >Need a new Account Sign UP</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

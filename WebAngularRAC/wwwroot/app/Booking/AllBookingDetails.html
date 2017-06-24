@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <nav class='navbar navbar-inverse'>
+            <div class='container-fluid'>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/UserDashboard']">Home</a></li>
+                    <li><a [routerLink]="['/ChangePassword']">ChangePassword</a></li>
+                    <li><a [routerLink]="['/UserLogout']">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="panel panel-default">
+            <div class="panel-heading">ALL BOOKING DETAILS</div>
+            <div class='panel-body'>
+
+                <div class='table-responsive'>
+                    <dx-data-grid id="gridContainer"
+                                  [showRowLines]="true"
+                                  [showBorders]="true"
+                                  [rowAlternationEnabled]="true"
+                                  [dataSource]="bookingmodel">
+                        <dxo-search-panel [visible]="true"
+                                          [width]="300"
+                                          placeholder="Search..."></dxo-search-panel>
+                        <dxo-paging [pageSize]="10"></dxo-paging>
+                        <dxo-pager [showPageSizeSelector]="true"
+                                   [allowedPageSizes]="[5, 10, 20]"
+                                   [showInfo]="true">
+                        </dxo-pager>
+
+                        <dxi-column sortOrder="asc" dataField="Name"></dxi-column>
+                        <dxi-column [width]="150" sortOrder="asc" dataField="FromDate"></dxi-column>
+                        <dxi-column [width]="150" sortOrder="asc" dataField="ToDate"></dxi-column>
+                        <dxi-column caption="Source" dataField="S_address"></dxi-column>
+                        <dxi-column caption="Destination" dataField="D_address"></dxi-column>
+                        <dxi-column dataField="Carname"></dxi-column>
+                        <dxi-column dataField="ModelName"></dxi-column>
+                        <dxi-column dataField="Status"></dxi-column>
+                        <dxi-column [width]="80" dataField="Amount"></dxi-column>
+                        <dxi-column [width]="100" caption="Booked On" dataType="date" dataField="CreatedOn"></dxi-column>
+
+                    </dx-data-grid>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

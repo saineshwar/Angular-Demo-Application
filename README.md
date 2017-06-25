@@ -53,5 +53,17 @@ Project Structure Screen
 
 ![Project Structure Screen](https://github.com/saineshwar/Angular-Demo-Application/blob/master/image045.png?raw=true "Project Structure Screen")
 
+Database 
+
+Before setting database just Read [Readme_First.rar file] which will easy your work.
+
+There is SQL Script [ SqlDatabase.rar File] Provided with this Solution while pull request you will get this file [SqlDatabase.rar].
+
+c-sharpcorner
+http://www.c-sharpcorner.com/members/saineshwar-bageri
+
+codeproject
+https://www.codeproject.com/Members/saineshwarbageri
+
 
 
